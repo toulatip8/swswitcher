@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SWSwitcherTrayApp.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TimeInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1800000</Value>
+    </Setting>
+    <Setting Name="PicturesFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MyPictures</Value>
+    </Setting>
+    <Setting Name="CurWallpaper" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Windows\Wallpaper.jpg</Value>
+    </Setting>
+    <Setting Name="CurStyle" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="CurOrder" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="DefaultWallpaperFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
