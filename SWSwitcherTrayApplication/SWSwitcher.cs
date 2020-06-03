@@ -119,6 +119,7 @@ namespace SWSwitcherTrayApp
       {
         // Open registry key and update layout
         RegistryKey key = null;
+        RegistryKey policy_key = null;
         if (hasRegisterAccess)
         {
           key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
@@ -127,6 +128,7 @@ namespace SWSwitcherTrayApp
             hasRegisterAccess = false;
           }
           else
+          {
             switch (style)
             {
               case Style.Stretched:
@@ -138,7 +140,10 @@ namespace SWSwitcherTrayApp
                 key.SetValue(@"TileWallpaper", 1.ToString());
                 break;
               case Style.Filled:
-                key.SetValue(@"WallpaperStyle", 10.ToString());
+                if (System.Environment.OSVersion.Version.Major == 6 && System.Environment.OSVersion.Version.Minor > 1)
+                  key.SetValue(@"WallpaperStyle", 4.ToString());
+                else
+                  key.SetValue(@"WallpaperStyle", 10.ToString());
                 key.SetValue(@"TileWallpaper", 0.ToString());
                 break;
               default:
@@ -148,25 +153,45 @@ namespace SWSwitcherTrayApp
                 break;
             }
 
-          // update local values
-          this.CurWallpaper = path;
-          this.CurStyle = style;
-          Properties.Settings.Default["CurWallpaper"] = this.CurWallpaper;
-          Properties.Settings.Default["CurStyle"] = (int)this.CurStyle;
-          Properties.Settings.Default.Save();
+            // Windows10 domain policy fix
+            if (isElevated)
+            {
+              policy_key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\System", true);
+              policy_key.SetValue(@"Wallpaper", path);
+              switch (style)
+              {
+                case Style.Stretched:
+                  policy_key.SetValue(@"WallpaperStyle", 2.ToString());
+                  break;
+                case Style.Tiled:
+                  policy_key.SetValue(@"WallpaperStyle", 1.ToString());
+                  break;
+                case Style.Filled:
+                  if (System.Environment.OSVersion.Version.Major == 6 && System.Environment.OSVersion.Version.Minor > 1)
+                    policy_key.SetValue(@"WallpaperStyle", 4.ToString());
+                  else
+                    policy_key.SetValue(@"WallpaperStyle", 10.ToString());
+                  break;
+                default:
+                case Style.Centered:
+                  policy_key.SetValue(@"WallpaperStyle", 1.ToString());
+                  break;
+              }
+            }
 
-          // Windows10 domain policy fix
-          if (hasRegisterAccess && isElevated)
-          {
-            RegistryKey policy_key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\System", true);
-            policy_key.SetValue(@"Wallpaper", path);
+            // Force SystemParametersInfo 
+            // Windows 7 domain: OK
+            // Windows 10 domain: OK with above FIX
+            // Also triggers SENDCHANGE so the wallpaper updates
+            ret = SystemParametersInfo(SPI_SETDESKWALLPAPER, 1, this.CurWallpaper, SPIF_SENDCHANGE);
+
+            // update local values
+            this.CurWallpaper = path;
+            this.CurStyle = style;
+            Properties.Settings.Default["CurWallpaper"] = this.CurWallpaper;
+            Properties.Settings.Default["CurStyle"] = (int)this.CurStyle;
+            Properties.Settings.Default.Save();
           }
-
-          // Force SystemParametersInfo 
-          // Windows 7 domain: OK
-          // Windows 10 domain: OK with above FIX
-          // Also triggers SENDCHANGE so the wallpaper updates
-          ret = SystemParametersInfo(SPI_SETDESKWALLPAPER, 1, this.CurWallpaper, SPIF_SENDCHANGE);
         }
 
         if (!hasRegisterAccess)

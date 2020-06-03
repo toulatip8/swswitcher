@@ -79,42 +79,46 @@ namespace SWSwitcherTrayApp
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SWSwitcherTrayApp));
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.chooseFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.interval1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.minToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.minToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.minToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.minToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sequentialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.randomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.styleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stretchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.centerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resetWallpaperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.neverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "SWSwitcher 1.0";
-            this.notifyIcon1.Visible = true;
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick_1);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+      this.components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SWSwitcherTrayApp));
+      this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+      this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.chooseFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.interval1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.minToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.minToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.minToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.minToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+      this.neverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.sequentialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.randomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.styleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.stretchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.centerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.tileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.fillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.resetWallpaperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.contextMenuStrip1.SuspendLayout();
+      this.SuspendLayout();
+      // 
+      // notifyIcon1
+      // 
+      this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
+      #if DEBUG
+      this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon2.Icon")));
+      #else 
+      this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+      #endif
+      this.notifyIcon1.Text = "SWSwitcher " + this.ProductVersion.ToString();
+      this.notifyIcon1.Visible = true;
+      this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick_1);
+      // 
+      // contextMenuStrip1
+      // 
+      this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chooseFolderToolStripMenuItem,
             this.interval1ToolStripMenuItem,
             this.orderToolStripMenuItem,
@@ -122,154 +126,155 @@ namespace SWSwitcherTrayApp
             this.resetWallpaperToolStripMenuItem,
             this.restartToolStripMenuItem,
             this.exitToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(158, 180);
-            // 
-            // chooseFolderToolStripMenuItem
-            // 
-            this.chooseFolderToolStripMenuItem.Name = "chooseFolderToolStripMenuItem";
-            this.chooseFolderToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.chooseFolderToolStripMenuItem.Text = "Choose folder...";
-            this.chooseFolderToolStripMenuItem.Click += new System.EventHandler(this.chooseFolderToolStripMenuItem_Click);
-            // 
-            // interval1ToolStripMenuItem
-            // 
-            this.interval1ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+      this.contextMenuStrip1.Name = "contextMenuStrip1";
+      this.contextMenuStrip1.Size = new System.Drawing.Size(158, 158);
+      // 
+      // chooseFolderToolStripMenuItem
+      // 
+      this.chooseFolderToolStripMenuItem.Name = "chooseFolderToolStripMenuItem";
+      this.chooseFolderToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+      this.chooseFolderToolStripMenuItem.Text = "Choose folder...";
+      this.chooseFolderToolStripMenuItem.Click += new System.EventHandler(this.chooseFolderToolStripMenuItem_Click);
+      // 
+      // interval1ToolStripMenuItem
+      // 
+      this.interval1ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.minToolStripMenuItem,
             this.minToolStripMenuItem1,
             this.minToolStripMenuItem2,
             this.minToolStripMenuItem3,
             this.neverToolStripMenuItem});
-            this.interval1ToolStripMenuItem.Name = "interval1ToolStripMenuItem";
-            this.interval1ToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.interval1ToolStripMenuItem.Text = "Interval";
-            // 
-            // minToolStripMenuItem
-            // 
-            this.minToolStripMenuItem.Name = "minToolStripMenuItem";
-            this.minToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.minToolStripMenuItem.Text = "5 min";
-            this.minToolStripMenuItem.Click += new System.EventHandler(this.minToolStripMenuItem_Click);
-            // 
-            // minToolStripMenuItem1
-            // 
-            this.minToolStripMenuItem1.Name = "minToolStripMenuItem1";
-            this.minToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.minToolStripMenuItem1.Text = "15 min";
-            this.minToolStripMenuItem1.Click += new System.EventHandler(this.minToolStripMenuItem1_Click);
-            // 
-            // minToolStripMenuItem2
-            // 
-            this.minToolStripMenuItem2.Name = "minToolStripMenuItem2";
-            this.minToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.minToolStripMenuItem2.Text = "30 min";
-            this.minToolStripMenuItem2.Click += new System.EventHandler(this.minToolStripMenuItem2_Click);
-            // 
-            // minToolStripMenuItem3
-            // 
-            this.minToolStripMenuItem3.Name = "minToolStripMenuItem3";
-            this.minToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
-            this.minToolStripMenuItem3.Text = "60 min";
-            this.minToolStripMenuItem3.Click += new System.EventHandler(this.minToolStripMenuItem3_Click);
-            // 
-            // orderToolStripMenuItem
-            // 
-            this.orderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+      this.interval1ToolStripMenuItem.Name = "interval1ToolStripMenuItem";
+      this.interval1ToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+      this.interval1ToolStripMenuItem.Text = "Interval";
+      // 
+      // minToolStripMenuItem
+      // 
+      this.minToolStripMenuItem.Name = "minToolStripMenuItem";
+      this.minToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+      this.minToolStripMenuItem.Text = "5 min";
+      this.minToolStripMenuItem.Click += new System.EventHandler(this.minToolStripMenuItem_Click);
+      // 
+      // minToolStripMenuItem1
+      // 
+      this.minToolStripMenuItem1.Name = "minToolStripMenuItem1";
+      this.minToolStripMenuItem1.Size = new System.Drawing.Size(110, 22);
+      this.minToolStripMenuItem1.Text = "15 min";
+      this.minToolStripMenuItem1.Click += new System.EventHandler(this.minToolStripMenuItem1_Click);
+      // 
+      // minToolStripMenuItem2
+      // 
+      this.minToolStripMenuItem2.Name = "minToolStripMenuItem2";
+      this.minToolStripMenuItem2.Size = new System.Drawing.Size(110, 22);
+      this.minToolStripMenuItem2.Text = "30 min";
+      this.minToolStripMenuItem2.Click += new System.EventHandler(this.minToolStripMenuItem2_Click);
+      // 
+      // minToolStripMenuItem3
+      // 
+      this.minToolStripMenuItem3.Name = "minToolStripMenuItem3";
+      this.minToolStripMenuItem3.Size = new System.Drawing.Size(110, 22);
+      this.minToolStripMenuItem3.Text = "60 min";
+      this.minToolStripMenuItem3.Click += new System.EventHandler(this.minToolStripMenuItem3_Click);
+      // 
+      // neverToolStripMenuItem
+      // 
+      this.neverToolStripMenuItem.Name = "neverToolStripMenuItem";
+      this.neverToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+      this.neverToolStripMenuItem.Text = "Never";
+      this.neverToolStripMenuItem.Click += new System.EventHandler(this.neverToolStripMenuItem_Click);
+      // 
+      // orderToolStripMenuItem
+      // 
+      this.orderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sequentialToolStripMenuItem,
             this.randomToolStripMenuItem});
-            this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            this.orderToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.orderToolStripMenuItem.Text = "Order";
-            // 
-            // sequentialToolStripMenuItem
-            // 
-            this.sequentialToolStripMenuItem.Name = "sequentialToolStripMenuItem";
-            this.sequentialToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.sequentialToolStripMenuItem.Text = "Sequential";
-            this.sequentialToolStripMenuItem.Click += new System.EventHandler(this.sequentialToolStripMenuItem_Click);
-            // 
-            // randomToolStripMenuItem
-            // 
-            this.randomToolStripMenuItem.Name = "randomToolStripMenuItem";
-            this.randomToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.randomToolStripMenuItem.Text = "Random";
-            this.randomToolStripMenuItem.Click += new System.EventHandler(this.randomToolStripMenuItem_Click);
-            // 
-            // styleToolStripMenuItem
-            // 
-            this.styleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+      this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
+      this.orderToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+      this.orderToolStripMenuItem.Text = "Order";
+      // 
+      // sequentialToolStripMenuItem
+      // 
+      this.sequentialToolStripMenuItem.Name = "sequentialToolStripMenuItem";
+      this.sequentialToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+      this.sequentialToolStripMenuItem.Text = "Sequential";
+      this.sequentialToolStripMenuItem.Click += new System.EventHandler(this.sequentialToolStripMenuItem_Click);
+      // 
+      // randomToolStripMenuItem
+      // 
+      this.randomToolStripMenuItem.Name = "randomToolStripMenuItem";
+      this.randomToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+      this.randomToolStripMenuItem.Text = "Random";
+      this.randomToolStripMenuItem.Click += new System.EventHandler(this.randomToolStripMenuItem_Click);
+      // 
+      // styleToolStripMenuItem
+      // 
+      this.styleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stretchToolStripMenuItem,
             this.centerToolStripMenuItem,
             this.tileToolStripMenuItem,
             this.fillToolStripMenuItem});
-            this.styleToolStripMenuItem.Name = "styleToolStripMenuItem";
-            this.styleToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.styleToolStripMenuItem.Text = "Style";
-            // 
-            // stretchToolStripMenuItem
-            // 
-            this.stretchToolStripMenuItem.Name = "stretchToolStripMenuItem";
-            this.stretchToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-            this.stretchToolStripMenuItem.Text = "Stretch";
-            this.stretchToolStripMenuItem.Click += new System.EventHandler(this.stretchToolStripMenuItem_Click);
-            // 
-            // centerToolStripMenuItem
-            // 
-            this.centerToolStripMenuItem.Name = "centerToolStripMenuItem";
-            this.centerToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-            this.centerToolStripMenuItem.Text = "Center";
-            this.centerToolStripMenuItem.Click += new System.EventHandler(this.centerToolStripMenuItem_Click);
-            // 
-            // tileToolStripMenuItem
-            // 
-            this.tileToolStripMenuItem.Name = "tileToolStripMenuItem";
-            this.tileToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-            this.tileToolStripMenuItem.Text = "Tile";
-            this.tileToolStripMenuItem.Click += new System.EventHandler(this.tileToolStripMenuItem_Click);
-            // 
-            // fillToolStripMenuItem
-            // 
-            this.fillToolStripMenuItem.Name = "fillToolStripMenuItem";
-            this.fillToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-            this.fillToolStripMenuItem.Text = "Fill";
-            this.fillToolStripMenuItem.Click += new System.EventHandler(this.fillToolStripMenuItem_Click);
-            // 
-            // resetWallpaperToolStripMenuItem
-            // 
-            this.resetWallpaperToolStripMenuItem.Name = "resetWallpaperToolStripMenuItem";
-            this.resetWallpaperToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.resetWallpaperToolStripMenuItem.Text = "Reset Default";
-            this.resetWallpaperToolStripMenuItem.Click += new System.EventHandler(this.resetWallpaperToolStripMenuItem_Click);
-            // 
-            // restartToolStripMenuItem
-            // 
-            this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.restartToolStripMenuItem.Text = "Restart";
-            this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // neverToolStripMenuItem
-            // 
-            this.neverToolStripMenuItem.Name = "neverToolStripMenuItem";
-            this.neverToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.neverToolStripMenuItem.Text = "Never";
-            this.neverToolStripMenuItem.Click += new System.EventHandler(this.neverToolStripMenuItem_Click);
-            // 
-            // SWSwitcherTrayApp
-            // 
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Name = "SWSwitcherTrayApp";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SWSwitcherTrayApp_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SWSwitcherTrayApp_FormClosed);
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.ResumeLayout(false);
+      this.styleToolStripMenuItem.Name = "styleToolStripMenuItem";
+      this.styleToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+      this.styleToolStripMenuItem.Text = "Style";
+      // 
+      // stretchToolStripMenuItem
+      // 
+      this.stretchToolStripMenuItem.Name = "stretchToolStripMenuItem";
+      this.stretchToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+      this.stretchToolStripMenuItem.Text = "Stretch";
+      this.stretchToolStripMenuItem.Click += new System.EventHandler(this.stretchToolStripMenuItem_Click);
+      // 
+      // centerToolStripMenuItem
+      // 
+      this.centerToolStripMenuItem.Name = "centerToolStripMenuItem";
+      this.centerToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+      this.centerToolStripMenuItem.Text = "Center";
+      this.centerToolStripMenuItem.Click += new System.EventHandler(this.centerToolStripMenuItem_Click);
+      // 
+      // tileToolStripMenuItem
+      // 
+      this.tileToolStripMenuItem.Name = "tileToolStripMenuItem";
+      this.tileToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+      this.tileToolStripMenuItem.Text = "Tile";
+      this.tileToolStripMenuItem.Click += new System.EventHandler(this.tileToolStripMenuItem_Click);
+      // 
+      // fillToolStripMenuItem
+      // 
+      this.fillToolStripMenuItem.Name = "fillToolStripMenuItem";
+      this.fillToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+      this.fillToolStripMenuItem.Text = "Fill";
+      this.fillToolStripMenuItem.Click += new System.EventHandler(this.fillToolStripMenuItem_Click);
+      // 
+      // resetWallpaperToolStripMenuItem
+      // 
+      this.resetWallpaperToolStripMenuItem.Name = "resetWallpaperToolStripMenuItem";
+      this.resetWallpaperToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+      this.resetWallpaperToolStripMenuItem.Text = "Reset Default";
+      this.resetWallpaperToolStripMenuItem.Click += new System.EventHandler(this.resetWallpaperToolStripMenuItem_Click);
+      // 
+      // restartToolStripMenuItem
+      // 
+      this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
+      this.restartToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+      this.restartToolStripMenuItem.Text = "Restart";
+      this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
+      // 
+      // exitToolStripMenuItem
+      // 
+      this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+      this.exitToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+      this.exitToolStripMenuItem.Text = "Exit";
+      this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+      // 
+      // SWSwitcherTrayApp
+      // 
+      this.ClientSize = new System.Drawing.Size(284, 262);
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+      this.Name = "SWSwitcherTrayApp";
+      this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SWSwitcherTrayApp_FormClosing);
+      this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SWSwitcherTrayApp_FormClosed);
+      this.contextMenuStrip1.ResumeLayout(false);
+      this.ResumeLayout(false);
 
         }
 
